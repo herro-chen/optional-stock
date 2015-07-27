@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.switch{
+				padding:10px;
+				text-align:center;
+				cursor:pointer
+			}
+			.active{
+				background:#0f0;
+			}
+			.fl{
+				float:left;
+			}
+			.fr{
+				float:right;
+			}
+			.btn{
+				text-align:center;
+				padding:5px;
+			}
+			.btn-success{
+				background: #0BF;
+				color: #fff
+			}
+			
+			.stocks{
+				width:100%;
+			}
+			.stock{
+				width:100%;
+				text-align:center;
+				border-bottom: 1px solid #000;
+			}
+			
+			.stock .item{
+				display:inline-block;
+				width:20%;
+				padding:5px 0px;
+				
+			}
+			.stock .item span{
+				padding:1px 5px;
+			}
+			
+			.stock .setting{
+				width:auto;
+				background: red;
+			}
+			
+			.min-input{
+				width:50px
+			}
+			
+			.up{
+				color: #CC0000
+			}
+			
+			.down{
+				color: #006600
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div style="width:600px">
+			<div class="fl" style="width:200px">
+				<p>我的自选股小助手</p>
+			</div>
+			<div class="fr" style="width:400px">
+				<div class="fr switch" id="close">关</div>
+				<div class="fr switch" id="open">开</div>
+			</div>
+			<div style="clear:both;margin-top:10px"></div>
+			<hr style="width:100%"/>
+			<div id="addStk">
+				<input type="text" value="" id="symbol" style="width:550px"/>
+				<input type="button" value="确定" id="addStkBtn" />
+			</div>
+			<div id="message"></div>
+			<hr style="width:100%"/>
+
+			<div class="stocks">
+				<div class="stock">
+					<a class="item">股票</a>
+					<a class="item">价格</a>
+					<a class="item">涨跌幅</a>
+					<a class="item">价格提醒</a>
+					<a class="item setting"></a>
+				</div>
+			</div>
+			
+		</div>
+		<script src="jquery-2.0.0.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

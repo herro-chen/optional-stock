@@ -1,0 +1,31 @@
+﻿{
+    "manifest_version": 2,
+    "name": "我的自选股小助手",
+    "description": "我的自选股小助手",
+    "version": "1.0.0",
+    "background": { 
+		"page": "background.html" 
+	},
+    "icons": 
+    { 
+		"128": "images/icon-128.png",
+		"64": "images/icon-64.png",
+		"32": "images/icon-32.png",
+		"16": "images/icon.png"
+    }, 
+    "browser_action": {
+        "default_icon": "images/icon-blue.png",
+        "default_title": "我的自选股小助手",
+        "default_popup": "browser_popup.html"
+    },
+    "permissions": [
+		"tabs", 
+		"notifications",
+        "http://*/*",
+		"https://*/*"
+    ],
+	"content_scripts":[{
+		"matches": ["http://*/*", "https://*/*"],
+		"js": ["jquery-2.0.0.min.js", "main.js"]
+	}]
+}
