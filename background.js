@@ -6,7 +6,6 @@ setInterval(function(){
 },10000);
 
 function sendIntantList(){
-	
 	var symbols = [];
 	for(key in stocks){
 		var market = 'sz';
