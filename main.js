@@ -30,6 +30,7 @@ $(function(){
 				message.html(dom);
 				return false;
 			}
+			
 			var market = 'sz';
 			if(symbol.substring(0, 1) == '6') market = 'sh';
 			var url = 'http://hq.sinajs.cn/?_=0.3473490597680211&list=' + market + symbol;
