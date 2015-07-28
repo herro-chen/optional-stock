@@ -30,15 +30,25 @@ $(function(){
 				message.html(dom);
 				return false;
 			}
-			var url = 'http://www.yuncaijing.com/stock/instant/' + symbol;
-			$.get(url, function(data){
-				if(data){
-					stocks[symbol] = {"name": data.name, "min": data.close, "max": data.close};
+			var market = 'sz';
+			if(symbol.substring(0, 1) == '6') market = 'sh';
+			var url = 'http://hq.sinajs.cn/?_=0.3473490597680211&list=' + market + symbol;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4){
+					ret = xhr.responseText;
+					var reg = 'var hq_str_'+ market + symbol + '=';
+					var str = ret.replace(reg, '');
+					str = str.replace(/[\n";]/g,'');
+					var stock = str.split(',');
+					console.log(stock);
+					stocks[symbol] = {"name": stock[0], "min": stock[3], "max": stock[3]};
 					localStorage.stocks = JSON.stringify(stocks);
-					data.min = data.max = data.close;
-					$('.stocks').append(addStkDom(symbol, data));
+					$('.stocks').append(addStkDom(symbol, stocks[symbol]));
 				}
-			}, 'json')
+			}
+			xhr.send();
 		}else{
 			var dom = '<div style="text-align:center;background:red;color:#fff">请输入正确的股票代码</div>';
 			message.html(dom);
