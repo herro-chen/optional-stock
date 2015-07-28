@@ -2,7 +2,7 @@ var isSwitch = localStorage.isSwitch ? localStorage.isSwitch : 0;
 var stocks = localStorage.stocks ? JSON.parse(localStorage.stocks) : {};
 
 setInterval(function(){
-	sendIntantList();
+	if(isSwitch > 0) sendIntantList();
 },10000);
 
 function sendIntantList(){
@@ -38,7 +38,7 @@ function sendIntantList(){
 					stocks_[symbol] = {"name": stock[0], "close": stock[3], "zdf": zdf};
 				})
 				
-				if(isSwitch > 0) handleIntantList(stocks_);
+				handleIntantList(stocks_);
 				
 			}
 		}
