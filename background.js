@@ -79,7 +79,7 @@ function handleIntantList(datas){
 	}
 	
 	if(body){
-		var notification = new Notification('自选股价格提醒',{icon:"http://yunvs.b0.upaiyun.com/statics/images/nficon.png", body:body});
+		var notification = new Notification('自选股价格提醒',{icon:"", body:body});
 		document.getElementById('soundMedia').play();			
 	}
 	
